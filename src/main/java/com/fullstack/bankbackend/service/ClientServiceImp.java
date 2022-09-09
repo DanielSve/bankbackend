@@ -27,6 +27,9 @@ public class ClientServiceImp implements ClientService {
     @Override
     public String removeClient(Long id) {
         Client client = clientRepository.findById(id).orElse(null);
+        if(client!=null) {
+            clientRepository.delete(client);
+        }
         return (client == null) ? "Could not find client" : "Deleted client with id " + id;
     }
 }
