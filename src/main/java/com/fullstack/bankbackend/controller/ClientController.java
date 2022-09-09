@@ -37,5 +37,10 @@ public class ClientController {
         return clientService.updateClient(id, updatedClient);
     }
 
+    @GetMapping("/{id}")
+    private Client getClientById(@PathVariable Long id) {
+        return clientService.getClientById(id);
+    }
+
 
 }

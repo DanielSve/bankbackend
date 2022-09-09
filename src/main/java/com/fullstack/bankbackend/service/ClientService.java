@@ -11,4 +11,5 @@ public interface ClientService {
     Client addClient(Client client);
     String removeClient(Long id);
     Client updateClient(Long id, Client updatedClient);
+    Client getClientById(Long id);
 }
