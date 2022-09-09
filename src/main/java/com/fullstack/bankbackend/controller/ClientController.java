@@ -31,5 +31,11 @@ public class ClientController {
        return clientService.removeClient(id);
     }
 
+    @PutMapping("/update/{id}")
+    private Client updateClient(@PathVariable Long id,
+                                @RequestBody Client updatedClient) {
+        return clientService.updateClient(id, updatedClient);
+    }
+
 
 }

@@ -32,4 +32,25 @@ public class ClientServiceImp implements ClientService {
         }
         return (client == null) ? "Could not find client" : "Deleted client with id " + id;
     }
+
+    @Override
+    public Client updateClient(Long id, Client updatedClient) {
+
+        Client client = clientRepository.findById(id).get();
+
+        if (updatedClient.getFirstName() != null) {
+            client.setFirstName(updatedClient.getFirstName());
+        }
+
+        if (updatedClient.getLastName() != null) {
+            client.setLastName(updatedClient.getLastName());
+        }
+
+        if (updatedClient.getEmail() != null) {
+            client.setEmail(updatedClient.getEmail());
+        }
+
+        return clientRepository.save(client);
+    }
+
 }
